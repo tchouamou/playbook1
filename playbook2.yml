@@ -1,12 +1,10 @@
 ---
-- name: Working with interface status
+- name: Playbook1
   hosts: all
   connection: local
-  vars:
-    - username_aci: 'ansible'
 
-  roles:
-    - pre-check
-    - snapshot
-    - ipg
-    - ipr
+  tasks:
+    - name: ensure apache is running
+       service:
+        name: httpd
+        state: started
