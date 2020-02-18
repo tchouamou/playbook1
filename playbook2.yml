@@ -1,0 +1,12 @@
+---
+- name: Working with interface status
+  hosts: all
+  connection: local
+  vars:
+    - username_aci: 'ansible'
+
+  roles:
+    - pre-check
+    - snapshot
+    - ipg
+    - ipr
