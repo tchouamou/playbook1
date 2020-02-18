@@ -1,22 +1,10 @@
 ---
-- name: Working with interface status
+- name: Playbook1
   hosts: all
   connection: local
-  vars:
-    - username_aci: 'ansible'
-    - certificat_aci: '/data/netadmin/ACI/certificate/ansible.key'
 
-  pre_tasks:
-    - pause:
-        prompt: "\e[31mWARNING\e[0m : You will deploy on the \e[31mPRODUCTION\e[0m ! [Press 'Enter' to continue the play or 'CTRL + C and Enter' to abort]"
-
-    - pause:
-        prompt: "\e[31mWARNING\e[0m : Is that your last word ? [Press 'Enter' to continue the play or 'CTRL + C and Enter' to abort]"
-
-  roles:
-    - pre-check
-    - snapshot
-    - ipg
-    - ipr
-    - spr
-    - epg
+  tasks:
+    - name: ensure apache is running
+       service:
+        name: httpd
+        state: started
