@@ -4,7 +4,7 @@
   connection: local
 
   tasks:
-    - name: ensure apache is running
+    - name: ensure apache is running1
        service:
         name: httpd
         state: started
